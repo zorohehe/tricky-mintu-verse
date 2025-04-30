@@ -18,7 +18,8 @@ const GlitchText: React.FC<GlitchTextProps> = ({
   const [isHovering, setIsHovering] = useState(false);
   const [glitchText, setGlitchText] = useState(text);
 
-  const glitchIntensity = {
+  // Define the glitch intensity map outside of the useEffect to avoid the variable access error
+  const glitchIntensityMap = {
     low: 0.01,
     medium: 0.03,
     high: 0.07,
@@ -27,13 +28,14 @@ const GlitchText: React.FC<GlitchTextProps> = ({
   useEffect(() => {
     if (!hoverEffect || isHovering) {
       const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      const intensity = glitchIntensity[intensity];
+      // Use the pre-defined map instead of declaring a new "intensity" variable
+      const intensityValue = glitchIntensityMap[intensity];
       
       const interval = setInterval(() => {
         const glitched = text
           .split('')
           .map((char) => {
-            if (Math.random() < intensity) {
+            if (Math.random() < intensityValue) {
               return chars.charAt(Math.floor(Math.random() * chars.length));
             }
             return char;

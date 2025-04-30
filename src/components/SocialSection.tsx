@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import GlitchText from './GlitchText';
@@ -7,7 +6,7 @@ interface SocialLink {
   name: string;
   icon: JSX.Element;
   url: string;
-  color: 'purple' | 'blue' | 'green' | 'pink' | 'orange';
+  color: 'purple' | 'blue' | 'green' | 'pink' | 'orange' | 'red';
 }
 
 const SocialSection: React.FC = () => {
@@ -96,7 +95,9 @@ const SocialSection: React.FC = () => {
                     "w-16 h-16 flex items-center justify-center rounded-full mb-4 bg-gradient-to-b",
                     getSocialColor(social.color),
                     "transition-all duration-300 group-hover:shadow-lg",
-                    `group-hover:shadow-${social.color === 'red' ? 'red-600/40' : `cyber-${social.color}/40`}`
+                    social.color === 'red' 
+                      ? 'group-hover:shadow-red-600/40' 
+                      : `group-hover:shadow-cyber-${social.color}/40`
                   )}
                 >
                   <div className={cn(
