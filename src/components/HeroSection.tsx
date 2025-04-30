@@ -145,7 +145,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {/* Main image with cyberpunk effect */}
             <div className="cyber-border w-64 h-64 md:w-80 md:h-80 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center bg-cyber-dark z-10">
-                {/* Replace placeholder with actual profile image */}
+                {/* Profile image */}
                 <Avatar className="w-full h-full">
                   <AvatarImage 
                     src="https://i.postimg.cc/fbnx2H2y/download-4.jpg" 
@@ -154,6 +154,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                   />
                   <AvatarFallback className="bg-cyber-dark text-5xl font-bold text-cyber-purple">TM</AvatarFallback>
                 </Avatar>
+                
+                {/* User profile information overlay */}
+                <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-b from-cyber-dark/60 via-transparent to-cyber-dark/60 z-20">
+                  <div className="text-center p-4">
+                    <div className="font-vt323 text-cyber-green text-2xl mb-2">$USER_PROFILE</div>
+                    <div className="font-orbitron text-cyber-purple text-3xl mb-2 text-glow">TRICKY MINTU</div>
+                    <div className="font-mono text-sm text-gray-400">SECURITY_LEVEL: ELITE</div>
+                  </div>
+                </div>
                 
                 {/* Scan effect overlay */}
                 <div className="absolute top-0 left-0 right-0 h-2 bg-cyber-green opacity-30 animate-matrix"></div>
