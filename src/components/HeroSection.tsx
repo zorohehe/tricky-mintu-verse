@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import GlitchText from './GlitchText';
 import TerminalText from './TerminalText';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface HeroSectionProps {
   className?: string;
@@ -141,21 +142,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {/* Neo-tokyo inspired circular frame */}
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyber-purple/30 via-cyber-blue/20 to-cyber-green/30 blur-md animate-pulse"></div>
             
-            {/* Main image placeholder with cyberpunk effect */}
+            {/* Main image with cyberpunk effect */}
             <div className="cyber-border w-64 h-64 md:w-80 md:h-80 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center bg-cyber-dark z-10">
-                <div className="text-center p-4">
-                  <div className="font-vt323 text-cyber-green text-2xl mb-2">$USER_PROFILE</div>
-                  <div className="font-orbitron text-cyber-purple text-3xl mb-2">TRICKY MINTU</div>
-                  <div className="font-mono text-sm text-gray-400">SECURITY_LEVEL: ELITE</div>
-                  <div className="mt-4">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-cyber-purple to-cyber-blue flex items-center justify-center">
-                      <span className="text-5xl font-bold text-white">TM</span>
-                    </div>
-                  </div>
-                </div>
+                {/* Replace placeholder with actual profile image */}
+                <Avatar className="w-full h-full">
+                  <AvatarImage 
+                    src="https://i.postimg.cc/fbnx2H2y/download-4.jpg" 
+                    alt="Tricky Mintu profile" 
+                    className="object-cover w-full h-full"
+                  />
+                  <AvatarFallback className="bg-cyber-dark text-5xl font-bold text-cyber-purple">TM</AvatarFallback>
+                </Avatar>
                 
-                {/* Scan effect */}
+                {/* Scan effect overlay */}
                 <div className="absolute top-0 left-0 right-0 h-2 bg-cyber-green opacity-30 animate-matrix"></div>
               </div>
             </div>
