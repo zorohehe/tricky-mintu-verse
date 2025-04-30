@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
       {/* Cyberpunk background image with overlay */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+          className="absolute inset-0 bg-cover bg-center opacity-50 mix-blend-luminosity"
           style={{ backgroundImage: 'url(https://i.postimg.cc/QNb0Br6b/download-3.jpg)' }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/70 to-cyber-dark"></div>
