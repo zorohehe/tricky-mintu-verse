@@ -46,10 +46,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className
       )}
     >
-      {/* Matrix-style background effect */}
-      <div className="matrix-bg"></div>
+      {/* Cyberpunk background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+          style={{ backgroundImage: 'url(https://i.postimg.cc/QNb0Br6b/download-3.jpg)' }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/70 to-cyber-dark"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,#0F0F17_100%)]"></div>
+      </div>
 
-      <div className="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between">
+      {/* Matrix-style background effect (retained as additional layer) */}
+      <div className="matrix-bg z-0"></div>
+
+      <div className="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between relative z-10">
         {/* Text content */}
         <div 
           className={cn(
@@ -115,7 +125,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         >
           <div className="relative">
             {/* Decorative grid element */}
-            <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-2">
+            <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-2 z-10">
               {Array.from({ length: 64 }).map((_, i) => (
                 <div 
                   key={i}
@@ -128,8 +138,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               ))}
             </div>
             
+            {/* Neo-tokyo inspired circular frame */}
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyber-purple/30 via-cyber-blue/20 to-cyber-green/30 blur-md animate-pulse"></div>
+            
             {/* Main image placeholder with cyberpunk effect */}
-            <div className="cyber-border w-64 h-64 md:w-80 md:h-80 rounded-md relative overflow-hidden">
+            <div className="cyber-border w-64 h-64 md:w-80 md:h-80 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center bg-cyber-dark z-10">
                 <div className="text-center p-4">
                   <div className="font-vt323 text-cyber-green text-2xl mb-2">$USER_PROFILE</div>
@@ -158,14 +171,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             <div className="absolute bottom-0 -left-4 bg-cyber-dark/80 px-3 py-1 border border-cyber-green/30 text-xs font-mono text-cyber-green">
               <div>SEC.LEVEL: MAX</div>
             </div>
+            
+            {/* Digital noise overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-blue/5 mix-blend-overlay pointer-events-none"></div>
           </div>
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <span className="text-gray-500 text-sm font-mono mb-2">SCROLL DOWN</span>
-        <div className="w-0.5 h-8 bg-cyber-purple/50 animate-pulse"></div>
+      {/* Scroll indicator with enhanced cyberpunk styling */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20">
+        <span className="text-gray-500 text-sm font-mono mb-2">SCROLL_DOWN.exe</span>
+        <div className="w-0.5 h-8 bg-gradient-to-b from-cyber-purple via-cyber-blue to-cyber-green animate-pulse"></div>
       </div>
     </section>
   );
