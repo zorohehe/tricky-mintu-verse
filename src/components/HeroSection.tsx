@@ -155,17 +155,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                   <AvatarFallback className="bg-cyber-dark text-5xl font-bold text-cyber-purple">TM</AvatarFallback>
                 </Avatar>
                 
-                {/* User profile information overlay */}
-                <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-b from-cyber-dark/60 via-transparent to-cyber-dark/60 z-20">
-                  <div className="text-center p-4">
-                    <div className="font-vt323 text-cyber-green text-2xl mb-2">$USER_PROFILE</div>
-                    <div className="font-orbitron text-cyber-purple text-3xl mb-2 text-glow">TRICKY MINTU</div>
-                    <div className="font-mono text-sm text-gray-400">SECURITY_LEVEL: ELITE</div>
-                  </div>
-                </div>
-                
                 {/* Scan effect overlay */}
                 <div className="absolute top-0 left-0 right-0 h-2 bg-cyber-green opacity-30 animate-matrix"></div>
+              </div>
+            </div>
+
+            {/* User profile information - now moved below the image */}
+            <div className="mt-6 bg-cyber-dark/80 border border-cyber-purple/30 p-4 rounded-md">
+              <div className="text-center">
+                <div className="font-vt323 text-cyber-green text-2xl mb-1">$USER_PROFILE</div>
+                <div className="font-orbitron text-cyber-purple text-3xl mb-1 text-glow">TRICKY MINTU</div>
+                <div className="font-mono text-sm text-gray-400">SECURITY_LEVEL: ELITE</div>
               </div>
             </div>
             
